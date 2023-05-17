@@ -1,5 +1,7 @@
 <?php
+namespace Database\Seeders\EReimburse;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeederTabelAksiReimburse extends Seeder

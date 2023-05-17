@@ -1,6 +1,11 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\ELembur\SeederTabelStatusLembur;
+use Database\Seeders\ELembur\SeederTabelStatusPersetujuanLembur;
+use Database\Seeders\ELembur\SeederTabelAksiLembur;
+use Database\Seeders\ELembur\SeederTabelPenerimaLembur;
 
 class SeederModulELembur extends Seeder
 {

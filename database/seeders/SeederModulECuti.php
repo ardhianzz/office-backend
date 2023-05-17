@@ -1,6 +1,18 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\ECuti\SeederTabelJenisHariLibur;
+use Database\Seeders\ECuti\SeederTabelHariLibur;
+use Database\Seeders\ECuti\SeederTabelTanggalHariLibur;
+use Database\Seeders\ECuti\SeederTabelStatusCuti;
+use Database\Seeders\ECuti\SeederTabelStatusPersetujuanCuti;
+use Database\Seeders\ECuti\SeederTabelAksiCuti;
+use Database\Seeders\ECuti\SeederTabelJenisHariCuti;
+use Database\Seeders\ECuti\SeederTabelJenisCuti;
+use Database\Seeders\ECuti\SeederTabelPenerimaCuti;
+use Database\Seeders\ECuti\SeederTabelPejabatPemeriksaCuti;
+use Database\Seeders\ECuti\SeederTabelJatahCutiHarian;
 
 class SeederModulECuti extends Seeder
 {

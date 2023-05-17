@@ -1,5 +1,7 @@
 <?php
+namespace Database\Seeders\ECuti;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeederTabelAksiCuti extends Seeder

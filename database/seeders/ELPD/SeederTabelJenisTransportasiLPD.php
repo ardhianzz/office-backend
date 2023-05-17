@@ -1,5 +1,7 @@
 <?php
+namespace Database\Seeders\ELPD;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeederTabelJenisTransportasiLPD extends Seeder

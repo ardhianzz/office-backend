@@ -1,5 +1,7 @@
 <?php
+namespace Database\Seeders\ESurat;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeederTabelStatusPersetujuanSurat extends Seeder

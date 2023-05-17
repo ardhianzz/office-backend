@@ -2,28 +2,30 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\SeederUpdateDataKaryawanBaru;
+use Database\Seeders\SeederUpdateJatahCuti;
+use Database\Seeders\SeederUpdateTabelJabatanUnitUser;
+use Database\Seeders\SeederGenerateTTDUser;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         $this->call([
-            SeederTabelStatusReimburse::class,
-            SeederTabelStatusPersetujuanReimburse::class,
-            SeederTabelAksiReimburse::class,
-            SeederTabelPejabatPemeriksaReimburse::class,
+            SeederModulMaster::class,
+            SeederModulESurat::class,
+            SeederModulELembur::class,
+            SeederModulECuti::class, 
+            SeederModulEReimburse::class,
+            SeederModulELPD::class,
+
+            /* BERIKUT UPDATE SEEDER SETELAH SEEDER MASTER SELESAI DI JALANKAN */
+            SeederUpdateDataKaryawanBaru::class,
+            SeederUpdateJatahCuti::class,
+            SeederUpdateTabelJabatanUnitUser::class,
+            // SeederGenerateTTDUser::class, //=> Masih Error, QrCode tidak terbaca
+            
         ]);
     }
 }

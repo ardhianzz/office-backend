@@ -1,5 +1,7 @@
 <?php
+namespace Database\Seeders\Master;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeederTabelOrganisasi extends Seeder
