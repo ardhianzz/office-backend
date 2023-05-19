@@ -24,8 +24,7 @@ class DatabaseSeeder extends Seeder
             SeederUpdateDataKaryawanBaru::class,
             SeederUpdateJatahCuti::class,
             SeederUpdateTabelJabatanUnitUser::class,
-            // SeederGenerateTTDUser::class, //=> Masih Error, QrCode tidak terbaca
-            
+            SeederGenerateTTDUser::class,
         ]);
     }
 }
