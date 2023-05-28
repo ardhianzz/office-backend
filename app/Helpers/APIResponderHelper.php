@@ -4,11 +4,12 @@ namespace App\Helpers;
 
 trait APIResponderHelper
 {
-    protected function success($message = 'Permintaan berhasil diproses', $data = [])
+    protected function success($message = 'Permintaan berhasil diproses', $data = [], $paginate = NULL)
     {
     	$response['response_status'] = SUKSES;
     	$response['message'] = $message;
     	$response['data'] = $data;
+        $response['paginate'] = $paginate;
 
         return response()->json($response);
     }

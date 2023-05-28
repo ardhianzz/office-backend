@@ -2,6 +2,9 @@
 
 namespace App\Models\ESurat;
 
+use App\Models\Master\JabatanUnitUser;
+use App\Models\Master\ProfilUser;
+use App\Models\Master\Unit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,11 +26,11 @@ class AksesSPSM extends Model
 
     public function juu()
     {
-    	return $this->belongsTo('App\Models\Master\JabatanUnitUser', 'id_juu')->withTrashed();
+    	return $this->belongsTo(JabatanUnitUser::class, 'id_juu', 'id')->withTrashed();
     }
 
     public function unit()
     {
-    	return $this->belongsTo('App\Models\Master\Unit', 'id_unit')->withTrashed();
+    	return $this->belongsTo(Unit::class, 'id_unit', 'id')->withTrashed();
     }
 }
