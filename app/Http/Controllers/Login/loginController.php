@@ -6,9 +6,8 @@ use App\Helpers\APIResponderHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Master\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-use App\Models\Master\JabatanUnitUser;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class loginController extends Controller
 {
@@ -20,30 +19,18 @@ class loginController extends Controller
             'nik' => $request->username,
             'password' => $request->password
         ];
+        $user = User::where('nik', $input['nik'])->first();
 
-
-        $user = User::where('nik', $input['nik'])->get();
-        if ($user->count() == 0) return $this->failure('User tidak ditemukan');
-        
-        /*
-        * JIKA USER ID DITEMUKAN, CEK PASSWORD
-        */
-        if(auth()->attempt($input)){
-            $data = $user;
-            /*
-            *  MEMBUAT TOKEN AKSES 
-            */
-
-
-            /*
-            * RETURN RESPON BERHASIL
-            */
-            return $this->success("Proses Berhasil", $data);
+        if (is_null($user)) return $this->failure('User tidak ditemukan');
+        try {
+            if ($user['access_token'] = JWTAuth::attempt($input)) {
+                $user->save();
+                return $this->success("Proses Berhasil", $user['access_token']);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
         return $this->failure('Password yang anda masukkan salah');
     }
-    
-
-
 }
