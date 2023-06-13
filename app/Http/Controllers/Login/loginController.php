@@ -16,18 +16,30 @@ class loginController extends Controller
 
     public function login(Request $request)
     {
-        
-       
-        if ($request->token) return $this->loginToken($request->token);
-        
         $input = [
             'nik' => $request->username,
             'password' => $request->password
         ];
 
-        $user = User::where('nik', $input['nik'])->first();
+
+        $user = User::where('nik', $input['nik'])->get();
+        if ($user->count() == 0) return $this->failure('User tidak ditemukan');
         
-        if (is_null($user)) return $this->failure('Data user tidak ditemukan');
+        /*
+        * JIKA USER ID DITEMUKAN, CEK PASSWORD
+        */
+        if(auth()->attempt($input)){
+            $data = $user;
+            /*
+            *  MEMBUAT TOKEN AKSES 
+            */
+
+
+            /*
+            * RETURN RESPON BERHASIL
+            */
+            return $this->success("Proses Berhasil", $data);
+        }
 
         return $this->failure('Password yang anda masukkan salah');
     }

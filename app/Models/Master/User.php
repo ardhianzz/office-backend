@@ -3,22 +3,14 @@
 namespace App\Models\Master;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Laravel\Lumen\Auth\Authorizable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-// use Illuminate\Notifications\Notifiable;
-// use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-
-// class User extends Model implements JWTSubject, AuthenticatableContract, AuthorizableContract
-class User extends Model
+class User extends Authenticatable
 {
-    // use SoftDeletes, Authenticatable, Authorizable;
-    use SoftDeletes, Authenticatable;
+    //use SoftDeletes, Authenticatable, Authorizable;
+    use SoftDeletes;
 
     protected $table = 'user';
     protected $connection = 'master_sys';
